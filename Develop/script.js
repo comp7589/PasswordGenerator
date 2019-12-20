@@ -127,23 +127,30 @@ function generatePassword() {
   var finalPassword = [];
   var guaranteeChar = [];
   var possibleChar = [];
+
   // if statement to push guaranteed characters into guaranteeChar array
   if (generateOptions.symbols === true) {
     possibleChar = possibleChar.concat(specialCharacters);
     guaranteeChar.push(randomize(specialCharacters));
   }
+
   // if statement to push guaranteed characters into guaranteeChar array
   if (generateOptions.numbers){
     possibleChar = possibleChar.concat(numericCharacters);
-    guaranteeChar.push(randomize(numericCharacters))
+    guaranteeChar.push(randomize(numericCharacters));
   }
 
+  //if statement lowercase char's to guaranteeChar array
+  if (generateOptions.lowerCase) {
+    possibleChar = possibleChar.concat(lowerCasedCharacters);
+    guaranteeChar.push(randomize(lowerCasedCharacters));
+  }
 
-  /*
-  
-  CREATE TWO IF STATEMENTS FOR UPPER AND LOWER HERE...FROM ABOVE.
-
-  */
+  //if statement uppercase char's to guaranteeChar array
+  if (generateOptions.upperCase) {
+    possibleChar = possibleChar.concat(upperCasedCharacters);
+    guaranteeChar.push(randomize(upperCasedCharacters));
+  }
 
   for (var i = 0; i < generateOptions.length; i++) {
 
@@ -194,6 +201,7 @@ STORES. THEN CREATES VARIABLE SELECT .HTML "ID" WHERE PASSWORD WILL DYNAMICALLY 
 
   passwordText.value = password;
 //OR passwordText.textContent = password^^^^^^(195)
+
   copyBtn.removeAttribute("disabled");
   copyBtn.focus();
 }
