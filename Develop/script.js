@@ -1,4 +1,4 @@
-// Assignment Code
+// Assignment Code - Button is generate ID class.
 
 var generateBtn = document.querySelector("#generate");
 
@@ -135,7 +135,7 @@ function generatePassword() {
   }
 
   // if statement to push guaranteed characters into guaranteeChar array
-  if (generateOptions.numbers){
+  if (generateOptions.numbers) {
     possibleChar = possibleChar.concat(numericCharacters);
     guaranteeChar.push(randomize(numericCharacters));
   }
@@ -160,8 +160,8 @@ function generatePassword() {
   }
   for (var i = 0; i < guaranteeChar.length; i++) {
     finalPassword[i] = guaranteeChar[i];
-}
-return finalPassword.join("");
+  }
+  return finalPassword.join("");
 
 }
 
@@ -194,13 +194,13 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-/* 
-DYNAMICALLY PUT GENERATED PASSWORD INTO .HTML BY CREATING PASSWORD VARIABLE THAT TAKES IN GENERATED PASSWORD OUTPUT. 
-STORES. THEN CREATES VARIABLE SELECT .HTML "ID" WHERE PASSWORD WILL DYNAMICALLY SHOW UP (TEXT AREA).
-*/
+  /* 
+  DYNAMICALLY PUT GENERATED PASSWORD INTO .HTML BY CREATING PASSWORD VARIABLE THAT TAKES IN GENERATED PASSWORD OUTPUT. 
+  STORES. THEN CREATES VARIABLE SELECT .HTML "ID" WHERE PASSWORD WILL DYNAMICALLY SHOW UP (TEXT AREA).
+  */
 
   passwordText.value = password;
-//OR passwordText.textContent = password^^^^^^(195)
+  //OR passwordText.textContent = password;    ^^^^^^(202)
 
   copyBtn.removeAttribute("disabled");
   copyBtn.focus();
