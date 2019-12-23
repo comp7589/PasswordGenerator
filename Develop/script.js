@@ -135,19 +135,19 @@ function generatePassword() {
   }
 
   // if statement to push guaranteed characters into guaranteeChar array
-  if (generateOptions.numbers) {
+  if (generateOptions.numbers === true) {
     possibleChar = possibleChar.concat(numericCharacters);
     guaranteeChar.push(randomize(numericCharacters));
   }
 
   //if statement lowercase char's to guaranteeChar array
-  if (generateOptions.lowerCase) {
+  if (generateOptions.lowerCase === true) {
     possibleChar = possibleChar.concat(lowerCasedCharacters);
     guaranteeChar.push(randomize(lowerCasedCharacters));
   }
 
   //if statement uppercase char's to guaranteeChar array
-  if (generateOptions.upperCase) {
+  if (generateOptions.upperCase === true) {
     possibleChar = possibleChar.concat(upperCasedCharacters);
     guaranteeChar.push(randomize(upperCasedCharacters));
   }
@@ -166,28 +166,7 @@ function generatePassword() {
 }
 
 result = generatePassword()
-alert(result)
-
-
-// Generator functions
-
-/*function getRandomLower() {
- return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
-
-function getRandomUpper() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
- }
-
- function getRandomNumber() {
-   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
- }
-
- function getRandomSymbol() {
-  const symbols = " !#$%&()*+,-./:;<=>?@[\]^_`{|}~'";
-  return symbols[Math.floor(Math.random() * symbols.length)];
- }*/
-
+alert(result);
 
 // Write password to the #password input
 function writePassword() {

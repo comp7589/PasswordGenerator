@@ -4,6 +4,8 @@
 
 An application that generates a random password based on user-selected criteria. This app will run in the browser and feature dynamically updated HTML and CSS powered by JavaScript code.
 
+[PasswordGenerator](https://comp7589.github.io/PasswordGenerator/)
+
 ## Usage
 
 The user will be prompted to choose from the following password criteria:
