@@ -1,6 +1,7 @@
 // Assignment Code - Button is generate ID class.
 
 var generateBtn = document.querySelector("#generate");
+var copyBtn = document.querySelector("#clipboard");
 
 var specialCharacters = [
   "@",
@@ -108,6 +109,7 @@ function getOptions() {
   }
   return userDefine;
 
+
 }
 
 
@@ -127,6 +129,12 @@ function generatePassword() {
   var finalPassword = [];
   var guaranteeChar = [];
   var possibleChar = [];
+
+  // //if statement to alert user requested password length invalid****
+  // if (generateOptions.length <= 7 && generateOptions.length > 128) {
+  //   alert("User defined length invalid. Please redefine.");
+  //   return getOptions();
+  // }
 
   // if statement to push guaranteed characters into guaranteeChar array
   if (generateOptions.symbols === true) {
@@ -155,8 +163,8 @@ function generatePassword() {
   for (var i = 0; i < generateOptions.length; i++) {
 
     var possibleEl = randomize(possibleChar);
-    finalPassword.push(possibleEl)
-    console.log(possibleEl)
+    finalPassword.push(possibleEl);
+    console.log(possibleEl);
   }
   for (var i = 0; i < guaranteeChar.length; i++) {
     finalPassword[i] = guaranteeChar[i];
@@ -165,7 +173,7 @@ function generatePassword() {
 
 }
 
-result = generatePassword()
+result = generatePassword();
 alert(result);
 
 // Write password to the #password input
@@ -181,15 +189,22 @@ function writePassword() {
   passwordText.value = password;
   //OR passwordText.textContent = password;    ^^^^^^(202)
 
-  copyBtn.removeAttribute("disabled");
-  copyBtn.focus();
+  copyBtn.removeAttribute("disabled");//??
+  copyBtn.focus();//??
 }
 
 function copyToClipboard() {
   // BONUS 
+  var copyText = document.querySelector("#password");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  alert("Text to Clipboard:\n" + copyText.value);
+
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 // BONUS EVENT LISTENER
+copyBtn.addEventListener("click", copyToClipboard);
